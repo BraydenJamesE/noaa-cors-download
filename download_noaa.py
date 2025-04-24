@@ -2,6 +2,7 @@ import pandas as pd
 import subprocess
 import os
 import sys
+import requests
 from concurrent.futures import ThreadPoolExecutor
 
 
@@ -67,6 +68,13 @@ def download_files(
     Raises:
         SystemExit: If the download fails.
     """
+    
+    # Check if the file exists on the server.
+    response = requests.head(url)
+    if response.status_code != 200:
+        print(f"Skipping download — file not found: {url}")
+        return
+    
     try:
         os.makedirs(download_dir, exist_ok=True)
         file_name = os.path.basename(url)
