@@ -21,7 +21,9 @@ Where:
 ## Requirements
 
 - Python 3
+- crx2rnx executable (must be downloaded and placed in the project directory)
 - pandas
+- requests
 
 Install dependencies:
 ```

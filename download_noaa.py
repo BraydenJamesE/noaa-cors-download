@@ -1,7 +1,6 @@
 import pandas as pd
 import subprocess
 import os
-import sys
 import requests
 import gzip
 import shutil
